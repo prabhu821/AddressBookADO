@@ -17,5 +17,6 @@ namespace AddressBook
         public int ZipCode { get; set; }
         public double PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Type { get; set; }
     }
 }

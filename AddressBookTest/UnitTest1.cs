@@ -25,5 +25,15 @@ namespace AddressBookTest
             int result = addressBookMain.UpdatePresoninAddressBook(model);
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void GetpersonbyType()
+        {
+            Contact model = new Contact();
+            model.Type = "Family";
+            AddressBookMain addressBookMain = new AddressBookMain();
+            int count = addressBookMain.GetPersonType(model);
+            Assert.AreEqual(2, count);
+        }
     }
 }

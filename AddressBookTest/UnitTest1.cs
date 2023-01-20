@@ -40,10 +40,30 @@ namespace AddressBookTest
         public void GetpersonbyCityName()
         {
             Contact model = new Contact();
-            model.City = "Bangalore";
+            model.City = "Moradabad";
             AddressBookMain addressBookMain = new AddressBookMain();
             int count = addressBookMain.GetPersonByCity(model);
             Assert.AreEqual(1, count);
+        }
+
+        [Test]
+        public void AddpersonInDatabase()
+        {
+            Contact model = new Contact
+            {
+                FName = "Parnika",
+                LName = "Singh",
+                Address = "C-24",
+                PhoneNumber = 7894652130,
+                Email = "pari23@gmail.com",
+                City = "Kanpur",
+                State = "UP",
+                ZipCode = 123456,
+                Type = "Friend"
+            };
+            AddressBookMain addressBookMain = new AddressBookMain();
+            int result = addressBookMain.AddPresoninAddressBook(model);
+            Assert.AreEqual(1, result);
         }
     }
 }

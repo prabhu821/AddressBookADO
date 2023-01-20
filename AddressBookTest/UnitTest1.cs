@@ -35,5 +35,15 @@ namespace AddressBookTest
             int count = addressBookMain.GetPersonType(model);
             Assert.AreEqual(2, count);
         }
+
+        [Test]
+        public void GetpersonbyCityName()
+        {
+            Contact model = new Contact();
+            model.City = "Bangalore";
+            AddressBookMain addressBookMain = new AddressBookMain();
+            int count = addressBookMain.GetPersonByCity(model);
+            Assert.AreEqual(1, count);
+        }
     }
 }

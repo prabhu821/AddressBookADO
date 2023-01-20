@@ -50,5 +50,32 @@ namespace AddressBook
                 throw new Exception(ex.Message);
             }
         }
+
+        public int UpdatePresoninAddressBook(Contact model)
+        {
+            try
+            {
+                using (this.sqlconnection)
+                {
+                    this.sqlconnection.Open();
+                    SqlCommand command = new SqlCommand("spUpdatePerson", this.sqlconnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ID", model.ID);
+                    command.Parameters.AddWithValue("@Address", model.Address);
+                    command.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
+                    int result = command.ExecuteNonQuery();
+                    this.sqlconnection.Close();
+                    if (result >= 1)
+                    {
+                        Console.WriteLine("Person Updated Successfully");
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
